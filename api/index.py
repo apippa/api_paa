@@ -14,7 +14,7 @@ def get_answer():
         return jsonify({'error': 'Question parameter is required'}), 400
     
     try:
-        answer = people_also_ask.get_answer(question)
+        answer = people_also_ask.get_related_questions(question,10)
         return jsonify({'question': question, 'answer': answer})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
