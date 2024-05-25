@@ -1,7 +1,15 @@
 from flask import Flask, request, jsonify
 import people_also_ask
+import people_also_ask.request.session
 
 app = Flask(__name__)
+
+people_also_ask.request.session.set_proxies(
+    (
+        "http://125.77.25.177:8080",
+        "http://72.10.164.178:5657",
+    )
+)
 
 @app.route('/')
 def home():
